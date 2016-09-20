@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/main.css">
+
+    </head>
+    <body>
+    	<nav class="navbar navbar-inverse">
+      		<div class="container">
+        		<div class="navbar-header">
+          			<a class="navbar-brand" href="#">
+          				<img id="logo" src="static/gplogo.png" />
+          			</a>
+        		</div>
+        		<div class="navbar-right">
+        			<h4>The URL Actionator</h4>
+        		</div>
+      		</div>
+    	</nav>
+
+    	<div class="container">
+
+			<div class="link-builder-form row">
+				<div class="col-xs-6">
+					<h4>Enter the original URL:</h4>
+  					<input type="text" class="form-control" id="base-url" placeholder="Original URL"/>
+				</div>
+				<div class="col-xs-6">
+					<h4>Enter the campaign subsource:</h4>
+  					<input type="text" class="form-control" id="subsource" placeholder="Subsource"/>
+				</div>
+			</div>
+			<button id="start-btn" class="btn btn-lg btn-success">Go</button>
+			
+			<table id="social-table" class="table table-bordered  table-striped table-hover">
+				<thead>
+				<tr>
+					<td></td>
+					<td>Use in BSD emails or in social posts</td>
+					<td></td>
+				</tr>
+				</thead>
+	            <tbody>
+	            <tr>
+	                <td>Email</td>
+	                <td class="link-output" data-key="email"><a id="link1"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link1">Copy</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Facebook</td>
+	                <td class="link-output" data-key="facebook"><a id="link2"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link2">Copy</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Twitter</td>
+	                <td class="link-output" data-key="twitter"><a id="link3"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link3">Copy</button>
+	                </td>
+	            </tr>
+	            </tbody>
+	        </table>
+	        
+	        <table id="taf-table" class="table table-bordered table-striped table-hover">
+				<thead>
+				<tr>
+					<td></td>
+					<td>Use in TAF/share page links/buttons (+ autoresponder email)</td>
+					<td></td>
+				</tr>
+				</thead>
+	            <tbody>
+	            <tr>
+	                <td>Post-action bounceback email</td>
+	                <td class="link-output" data-key="postaction-bounceback"><a id="link4"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link4">Copy</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Facebook</td>
+	                <td class="link-output" data-key="facebook-taf"><a id="link5"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link5">Copy</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Twitter</td>
+	                <td class="link-output" data-key="twitter-taf"><a id="link6"></a></td>
+	                <td class="button-cell">
+	                	<button class="btn btn-sm" data-clipboard-target="#link6">Copy</button>
+	                </td>
+	            </tr>
+	            </tbody>
+	        </table>
+    	</div> <!-- /container --> 
+    	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
+        <script src="static/main.js"></script>
+    </body>
+</html>
