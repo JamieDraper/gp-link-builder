@@ -1,0 +1,13 @@
+application: forward-action-link-builder
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /static
+  static_dir: static
+
+- url: .*
+  script: index.html

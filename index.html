@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="static/main.css">
+        <link rel="stylesheet" href="static/main.css?v=1">
 
     </head>
     <body>
@@ -27,88 +27,103 @@
     	</nav>
 
     	<div class="container">
-
+    		<!-- USER INPUT -->
 			<div class="link-builder-form row">
-				<div class="col-xs-6">
-					<h4>Enter the original URL:</h4>
-  					<input type="text" class="form-control" id="base-url" placeholder="Original URL"/>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<h4>Enter the original URL:</h4>
+	  					<input type="text" class="form-control" id="base-url" placeholder="Original URL"/>
+  					</div>
 				</div>
-				<div class="col-xs-6">
-					<h4>Enter the campaign subsource:</h4>
-  					<input type="text" class="form-control" id="subsource" placeholder="Subsource"/>
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group">
+						<h4>Enter the campaign subsource:</h4>
+  						<input type="text" class="form-control" id="subsource" placeholder="Subsource"/>
+  					</div>
+				</div>
+				<div class="col-xs-12 col-md-5 text-center">
+					<div class="form-check">
+  						<label class="form-check-label">
+    						<input class="form-check-input" type="checkbox"  id="testing" value="testing">
+    							Testing mode (prepends 'zzz' to source)
+  						</label>
+					</div>
 				</div>
 			</div>
 			<button id="start-btn" class="btn btn-lg btn-success">Go</button>
-			
-			<table id="social-table" class="table table-bordered  table-striped table-hover">
-				<thead>
-				<tr>
-					<td></td>
-					<td>Use in BSD emails or in social posts</td>
-					<td></td>
-				</tr>
-				</thead>
-	            <tbody>
-	            <tr>
-	                <td>Email</td>
-	                <td class="link-output" data-key="email"><a id="link1"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link1">Copy</button>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>Facebook</td>
-	                <td class="link-output" data-key="facebook"><a id="link2"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link2">Copy</button>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>Twitter</td>
-	                <td class="link-output" data-key="twitter"><a id="link3"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link3">Copy</button>
-	                </td>
-	            </tr>
-	            </tbody>
-	        </table>
-	        
-	        <table id="taf-table" class="table table-bordered table-striped table-hover">
-				<thead>
-				<tr>
-					<td></td>
-					<td>Use in TAF/share page links/buttons (+ autoresponder email)</td>
-					<td></td>
-				</tr>
-				</thead>
-	            <tbody>
-	            <tr>
-	                <td>Post-action bounceback email</td>
-	                <td class="link-output" data-key="postaction-bounceback"><a id="link4"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link4">Copy</button>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>Facebook</td>
-	                <td class="link-output" data-key="facebook-taf"><a id="link5"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link5">Copy</button>
-	                </td>
-	            </tr>
-	            <tr>
-	                <td>Twitter</td>
-	                <td class="link-output" data-key="twitter-taf"><a id="link6"></a></td>
-	                <td class="button-cell">
-	                	<button class="btn btn-sm" data-clipboard-target="#link6">Copy</button>
-	                </td>
-	            </tr>
-	            </tbody>
-	        </table>
+			<!-- RESULTS -->
+			<div class="table-responsive">
+				<table id="social-table" class="table table-bordered  table-striped table-hover">
+					<thead>
+					<tr>
+						<td></td>
+						<td>Use in BSD emails or in social posts</td>
+						<td></td>
+					</tr>
+					</thead>
+		            <tbody>
+		            <tr>
+		                <td>Email</td>
+		                <td class="link-output" data-key="email"><a id="link1"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link1">Copy</button>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>Facebook</td>
+		                <td class="link-output" data-key="facebook"><a id="link2"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link2">Copy</button>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>Twitter</td>
+		                <td class="link-output" data-key="twitter"><a id="link3"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link3">Copy</button>
+		                </td>
+		            </tr>
+		            </tbody>
+		        </table>
+	        </div>
+	        <div class="table-responsive">
+		        <table id="taf-table" class="table table-bordered table-striped table-hover">
+					<thead>
+					<tr>
+						<td></td>
+						<td>Use in TAF/share page links/buttons (+ autoresponder email)</td>
+						<td></td>
+					</tr>
+					</thead>
+		            <tbody>
+		            <tr>
+		                <td>Post-action bounceback email</td>
+		                <td class="link-output" data-key="postaction-bounceback"><a id="link4"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link4">Copy</button>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>Facebook</td>
+		                <td class="link-output" data-key="facebook-taf"><a id="link5"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link5">Copy</button>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>Twitter</td>
+		                <td class="link-output" data-key="twitter-taf"><a id="link6"></a></td>
+		                <td class="button-cell">
+		                	<button class="btn btn-sm" data-clipboard-target="#link6">Copy</button>
+		                </td>
+		            </tr>
+		            </tbody>
+		        </table>
+	    	</div>
     	</div> <!-- /container --> 
     	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
-        <script src="static/main.js"></script>
+        <script src="static/main.js?v1"></script>
     </body>
 </html>

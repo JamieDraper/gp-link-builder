@@ -9,20 +9,28 @@ var URLBuilder = {
     init : function() {
         this.userInput.baseUrl = $('#base-url').val();
         this.userInput.subSource = $('#subsource').val();
+        this.userInput.testingMode = $('#testing').is(':checked');
         this.generateUrls();
         this.renderUrls();
     },
-      
+
     generateUrls : function() {
         // generate urls from input
-        var baseUrl = this.userInput.baseUrl;
-        var subSource = this.userInput.subSource;
-        var utmSource = "gpeace";
-        var sources = {
-            social: "cl",
-            taf: "taf"
-        };
-
+        var baseUrl = this.userInput.baseUrl,
+            subSource = this.userInput.subSource,
+            utmSource = "gpeace",
+            testing = this.userInput.testingMode,
+            sources = {
+                social: "cl",
+                taf: "taf"
+            };
+        if (testing) {
+            console.log('in testing');
+            for(var source in sources) {
+                var testSource = "zzz" + sources[source];
+                sources[source] = testSource;
+            }
+        }
         urls = {
             "email" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
             "facebook" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
