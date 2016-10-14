@@ -9,7 +9,7 @@ var URLBuilder = {
     init : function() {
         this.userInput.baseUrl = $('#base-url').val();
         this.userInput.subSource = $('#subsource').val();
-        this.userInput.tySubSource = $('#tysubsource').val();
+        this.userInput.tySource = $('#tysource').val();
         this.userInput.testingMode = $('#testing').is(':checked');
         this.generateUrls();
         this.renderUrls();
@@ -38,7 +38,7 @@ var URLBuilder = {
                 taf: "taf"
             },
             nonRequiredCodes = {
-                "tysubsource": this.userInput.tySubSource
+                "tysource": this.userInput.tySource
             };
         if (testing) {
             for(var source in sources) {
