@@ -34,8 +34,8 @@ var URLBuilder = {
             utmSource = "gpeace",
             testing = this.userInput.testingMode,
             sources = {
-                social: "cl",
-                taf: "taf"
+                standard: "CL",
+                ads: "FP"
             },
             nonRequiredCodes = {
                 "tysource": this.userInput.tySource
@@ -48,12 +48,8 @@ var URLBuilder = {
         }
 
         urls = {
-            "email" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
-            "facebook" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
-            "twitter" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
-            "postaction-bounceback" : "?source="+sources.taf+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
-            "facebook-taf" : "?source="+sources.taf+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
-            "twitter-taf" : "?source="+sources.taf+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
+            "standard" : "?source="+sources.standard+"&subsource="+subSource+"&utm_medium="+sources.standard+"&utm_source="+utmSource+"&utm_campaign="+subSource,
+            "ads" : "?source="+sources.ads+"&subsource="+subSource+"&utm_medium="+sources.ads+"&utm_source="+utmSource+"&utm_campaign="+subSource
         };
         $.each(urls, function(key, value){
             // prepend base url
