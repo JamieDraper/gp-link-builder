@@ -9,9 +9,22 @@ var URLBuilder = {
     init : function() {
         this.userInput.baseUrl = $('#base-url').val();
         this.userInput.subSource = $('#subsource').val();
+        this.userInput.tySubSource = $('#tysubsource').val();
         this.userInput.testingMode = $('#testing').is(':checked');
         this.generateUrls();
         this.renderUrls();
+        return false;
+    },
+
+    appendNonRequiredCodes: function(codes) {
+        for(var code in codes) {
+            if(codes[code]) {
+                // code specified, append to all urls
+                for (var url in urls) {
+                    urls[url] += "&" + code + "=" + codes[code];
+                }
+            }
+        }
     },
 
     generateUrls : function() {
@@ -23,14 +36,17 @@ var URLBuilder = {
             sources = {
                 social: "cl",
                 taf: "taf"
+            },
+            nonRequiredCodes = {
+                "tysubsource": this.userInput.tySubSource
             };
         if (testing) {
-            console.log('in testing');
             for(var source in sources) {
                 var testSource = "zzz" + sources[source];
                 sources[source] = testSource;
             }
         }
+
         urls = {
             "email" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
             "facebook" : "?source="+sources.social+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
@@ -39,19 +55,19 @@ var URLBuilder = {
             "facebook-taf" : "?source="+sources.taf+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
             "twitter-taf" : "?source="+sources.taf+"&subsource="+subSource+"&utm_medium="+sources.social+"&utm_source="+utmSource+"&utm_campaign="+subSource,
         };
-        
         $.each(urls, function(key, value){
             // prepend base url
             var thisUrl = baseUrl + value;
             urls[key] = thisUrl;
         });
+
+        this.appendNonRequiredCodes(nonRequiredCodes);
     },
     
     renderUrls : function() {
         // add urls to table
         $('.link-output').each(function(){
             var thisKey = $(this).attr('data-key');
-            console.log(thisKey);
             var thisUrl = urls[thisKey];
             if (thisUrl) {
                 $(this).find('a').html(thisUrl);
@@ -61,13 +77,9 @@ var URLBuilder = {
 }
 
 $(function() {
-    
+
     // Initialise 'copy' buttons
     new Clipboard('table .btn');
-    
-    $('#start-btn').on('click', function(){
-        URLBuilder.init();
-    });
-  
+
 });
 

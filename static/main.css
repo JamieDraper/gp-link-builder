@@ -33,6 +33,10 @@
     font-weight: 500;
 }
 
+.options .col-xs-12:nth-child(1) {
+    margin-top: 34px;
+}
+
 #start-btn {
     margin: 25px auto;
     display: block;
